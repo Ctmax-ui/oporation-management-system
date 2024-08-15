@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!--icons.css-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .dropdown-menu {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <!-- Sidebar content -->
+  </div>
+
+  <section class="home-section">
+    <div class="top-section">
+      <!-- Top section content -->
+    </div>
+
+    <div class="rootcaus-section">
+      <h1 class="chartheading" style="display: flex; justify-content: center; margin-top: 20px; padding-bottom: 15px;">
+        Root Cause Analysis</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <div class="box">
+              <div class="topcharttext">
+                <h4 style="padding-top: 15px;">Search Rule</h4>
+              </div>
+              <div class="outline">
+                <div class="row" style="padding-top: 20px;">
+                  <div class="col-12">
+                    <div class="d-flex flex-row bd-highlight mb-3" style="justify-content: center;">
+                      <div class="search-rule-one px-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" style="width: 160px;">
+                          Search Rule One
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><label><input type="checkbox"> select All</label></li>
+                        </ul>
+                      </div>
+                      <div class="search-rule-two px-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" style="width: 160px;">
+                          Search Rule Two
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><label><input type="checkbox"> select All</label></li>
+                        </ul>
+                      </div>
+                      <div class="search-rule-three px-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" style="width: 160px;">
+                          Search Rule Three
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><label><input type="checkbox"> select All</label></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="box">
+              <div class="topcharttext">
+                <h4 style="padding-top: 15px;">Rules Template</h4>
+              </div>
+              <div class="outline">
+                <div class="row" style="padding-top: 20px;">
+
+
+                  <form class="col-12" id="add-rule-form">
+                    <div class="d-flex flex-row bd-highlight mb-3" style="justify-content: center;">
+                      <!-- Category one Dropdown -->
+                      <div class="category-one px-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" style="width: 160px;">
+                          T Rule One
+                        </button>
+                        <ul class="dropdown-menu" id="category-one-menu" aria-labelledby="dropdownMenuButton">
+                          <div class="add-option-button"
+                            style="display: flex;justify-content: flex-start;padding-bottom: 5px;">
+                            <button type="button" class="btn btn-secondary btn-lg select-all-btn" data-category="one"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Select All">
+                              <i class="bi bi-check2-square"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-lg deselect-all-btn" data-category="one"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; margin-left: 15px;background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Deselect All">
+                              <i class="bi bi-x-square"></i>
+                            </button>
+                          </div>
+                          <div class="category-menu-option">
+                            
+                          </div>
+                          <div class="add-option-button"
+                            style="display: flex;justify-content: flex-start;padding-top: 10px;">
+                            <button type="button" class="btn btn-secondary btn-lg" id="add-category-one-btn"
+                              style="font-size: 14px;padding: 0px;border-radius: 3px;width: 55%;align-content: last baseline;">Add
+                              Rull</button>
+                          </div>
+                          <!-- Add more options as needed -->
+                        </ul>
+                      </div>
+                      <!-- Category Two Dropdown -->
+                      <div class="category-one px-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" style="width: 160px;">
+                          T Rule Two
+                        </button>
+                        <ul class="dropdown-menu" id="category-two-menu" aria-labelledby="dropdownMenuButton">
+                          <div class="add-option-button"
+                            style="display: flex;justify-content: flex-start;padding-bottom: 5px;">
+                            <button type="button" class="btn btn-secondary btn-lg select-all-btn" data-category="two"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Select All">
+                              <i class="bi bi-check2-square"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-lg deselect-all-btn" data-category="two"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; margin-left: 15px;background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Deselect All">
+                              <i class="bi bi-x-square"></i>
+                            </button>
+                          </div>
+                          <div class="category-menu-option">
+ 
+                          </div>
+                          <div class="add-option-button"
+                            style="display: flex;justify-content: flex-start;padding-top: 10px;">
+                            <button type="button" class="btn btn-secondary btn-lg" id="add-category-two-btn"
+                              style="font-size: 14px;padding: 0px;border-radius: 3px;width: 55%;align-content: last baseline;">Add
+                              Rule</button>
+                          </div>
+                          <!-- Add more options as needed -->
+                        </ul>
+                      </div>
+                      <!-- Category Three Dropdown -->
+                      <div class="category-one px-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" style="width: 160px;">
+                          T Rule Three
+                        </button>
+                        <ul class="dropdown-menu" id="category-three-menu" aria-labelledby="dropdownMenuButton">
+                          <div class="select-deselect-button"
+                            style="display: flex;justify-content: flex-start;padding-bottom: 5px;">
+                            <button type="button" id="select-all-btn" class="btn btn-secondary btn-lg select-all-btn"
+                              data-category="three"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Select All">
+                              <i class="bi bi-check2-square"></i>
+                            </button>
+                            <button type="button" id="deselect-all-btn"
+                              class="btn btn-secondary btn-lg deselect-all-btn" data-category="three"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; margin-left: 15px;background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Deselect All">
+                              <i class="bi bi-x-square"></i>
+                            </button>
+                          </div>
+                          <div class="category-menu-option">
+
+                          </div>
+                          <div class="add-option-button"
+                            style="display: flex;justify-content: flex-start;padding-top: 10px;">
+                            <button type="button" class="btn btn-secondary btn-lg" id="add-category-three-btn"
+                              style="font-size: 14px;padding: 0px;border-radius: 3px;width: 55%;align-content: last baseline;">Add
+                              Rule</button>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="container mt-5">
+                      <lable>select Date <span class="text-danger">*</span></lable>
+                      <input type="text" id="daterange" class="form-control" required>
+                    </div>
+
+                    <div class="submit-button" style="display: flex; justify-content: center; padding-bottom: 20px;">
+                      <button type="submit" class="btn btn-secondary btn-lg" id="submitBtn">Save Rule</button>
+                    </div>
+                  </form>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="box">
+              <div class="topcharttext">
+                <h4 style="padding-top: 15px;">Saved Template List</h4>
+              </div>
+              <div class="input-group" style="display: flex;justify-content: end;margin-right: 70px;">
+                <div class="form-outline" data-mdb-input-init>
+                  <input id="search-input" type="search" id="form1" class="form-control" placeholder="Search" />
+                </div>
+                <button id="search-button" type="button" class="btn btn-primary"
+                  style="max-height: 38px;margin-top: 1px;">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+              <div class="outline">
+                <div class="row" >
+                  <div class="col-12 save-template-lists" id="save-template">
+                    <!-- Saved Template List run from js -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="submit-button" style="display: flex; justify-content: center; padding-bottom: 20px;">
+                <button type="button" class="btn btn-secondary btn-lg" id="submitBtn">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <div class="box modalBox position-fixed top-50 start-50 translate-middle bg-white d-none" style="z-index:999;" id="modalContainer">
+    <div class="topcharttext w-full text-center position-relative">
+      <h4 style="padding-top: 15px;">Edit Template</h4>
+      <button id="closeModalBtn" class="px-2 py-0 position-absolute end-0 top-0 m-2 btn fs-2 btn-outline-secondary"><i
+          class="bi bi-x py-0"></i></button>
+    </div>
+    <div class="outline">
+      <div class="row" style="padding-top: 20px;">
+
+
+        <form class="col-12" id="editForm">
+          <div class="d-flex flex-row bd-highlight mb-3" style="justify-content: center;">
+            <!-- Category one Dropdown -->
+            <div class="category-one px-4">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" style="width: 160px;">
+                T Rule One
+              </button>
+              <ul class="dropdown-menu" id="category-one-edit-menu" aria-labelledby="dropdownMenuButton">
+                <div class="add-option-button"
+                            style="display: flex;justify-content: flex-start;padding-bottom: 5px;">
+                            <button type="button" class="btn btn-secondary btn-lg select-all-btn" data-category="one"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Select All">
+                              <i class="bi bi-check2-square"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-lg deselect-all-btn" data-category="one"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; margin-left: 15px;background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Deselect All">
+                              <i class="bi bi-x-square"></i>
+                            </button>
+                          </div>
+                <div class="category-menu-option">
+                </div>
+              </ul>
+            </div>
+            <!-- Category Two Dropdown -->
+            <div class="category-one px-4">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" style="width: 160px;">
+                T Rule Two
+              </button>
+              <ul class="dropdown-menu" id="category-two-edit-menu" aria-labelledby="dropdownMenuButton">
+                <div class="add-option-button"
+                            style="display: flex;justify-content: flex-start;padding-bottom: 5px;">
+                            <button type="button" class="btn btn-secondary btn-lg select-all-btn" data-category="two"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Select All">
+                              <i class="bi bi-check2-square"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-lg deselect-all-btn" data-category="two"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; margin-left: 15px;background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Deselect All">
+                              <i class="bi bi-x-square"></i>
+                            </button>
+                          </div>
+                <div class="category-menu-option">
+                </div>
+              </ul>
+            </div>
+            <!-- Category Three Dropdown -->
+            <div class="category-one px-4">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" style="width: 160px;">
+                T Rule Three
+              </button>
+              <ul class="dropdown-menu" id="category-three-edit-menu" aria-labelledby="dropdownMenuButton">
+                <div class="select-deselect-button"
+                            style="display: flex;justify-content: flex-start;padding-bottom: 5px;">
+                            <button type="button" id="select-all-btn" class="btn btn-secondary btn-lg select-all-btn"
+                              data-category="three"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Select All">
+                              <i class="bi bi-check2-square"></i>
+                            </button>
+                            <button type="button" id="deselect-all-btn"
+                              class="btn btn-secondary btn-lg deselect-all-btn" data-category="three"
+                              style="font-size: 16px;padding: 0px;border-radius: 3px;width: 35%; margin-left: 15px;background-color: transparent;color: #565e64; border-color: #94989d;"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Deselect All">
+                              <i class="bi bi-x-square"></i>
+                            </button>
+                          </div>
+                <div class="category-menu-option">
+                  <li><label><input type="checkbox" value="C1"> C1</label></li>
+                  <li><label><input type="checkbox" value="C2"> C2</label></li>
+                  <li><label><input type="checkbox" value="C3"> C3</label></li>
+                  <li><label><input type="checkbox" value="C4"> C4</label></li>
+                  <li><label><input type="checkbox" value="C5"> C5</label></li>
+                  <li><label><input type="checkbox" value="C6"> C6</label></li>
+                  <li><label><input type="checkbox" value="C7"> C7</label></li>
+                  <li><label><input type="checkbox" value="C8"> C8</label></li>
+                  <li><label><input type="checkbox" value="C9"> C9</label></li>
+                  <li><label><input type="checkbox" value="C10"> C10</label></li>
+                  <li><label><input type="checkbox" value="C11"> C11</label></li>
+                  <li><label><input type="checkbox" value="C12"> C12</label></li>
+                  <li><label><input type="checkbox" value="C13"> C13</label></li>
+                  <li><label><input type="checkbox" value="C14"> C14</label></li>
+                  <li><label><input type="checkbox" value="C15"> C15</label></li>
+                </div>
+              </ul>
+            </div>
+          </div>
+
+          <div class="container mt-5">
+            <lable>select Date <span class="text-danger">*</span></lable>
+            <input type="text" id="editDateId" class="form-control" required>
+          </div>
+
+          <div class="submit-button" style="display: flex; justify-content: center; padding-bottom: 20px;">
+            <button type="submit" class="btn btn-secondary btn-lg">Save Rule</button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Moment.js -->
+  <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <!-- Date Range Picker JS -->
+  <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="./script.js"></script> -->
+  <script src="./index.js"></script>
+
+</body>
+
+</html>
