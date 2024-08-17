@@ -5,37 +5,138 @@ const rootApi = {
             "date": "08/07/2024 - 08/23/2024",
             "category_one": [
                 "A1",
-                "A2",
-                "A3",
             ],
             "category_two": [
                 "B1",
-                "B2",
-                "B3",
             ],
             "category_three": [
                 "C1",
-                "C2",
-                "C3",
             ],
         },
         2: {
             "id": 2,
             "date": "08/07/2024 - 08/23/2024",
             "category_one": [
+                "A2",
+            ],
+            "category_two": [
+                "B2",
+            ],
+            "category_three": [
+                "C2",
+            ],
+        },
+        3: {
+            "id": 3,
+            "date": "08/07/2024 - 08/23/2024",
+            "category_one": [
+                "A3",
+            ],
+            "category_two": [
+                "B3",
+            ],
+            "category_three": [
+                "C3",
+            ],
+        },
+        4: {
+            "id": 4,
+            "date": "08/07/2024 - 08/23/2024",
+            "category_one": [
+                "A4",
+            ],
+            "category_two": [
+                "B4",
+            ],
+            "category_three": [
+                "C4",
+            ],
+        },
+        5: {
+            "id": 5,
+            "date": "08/24/2024 - 09/10/2024",
+            "category_one": [
                 "A1",
+                "A2",
+            ],
+            "category_two": [
+                "B1",
+                "B4",
+            ],
+            "category_three": [
+                "C2",
+            ],
+        },
+        6: {
+            "id": 6,
+            "date": "08/24/2024 - 09/10/2024",
+            "category_one": [
+                "A3",
+            ],
+            "category_two": [
+                "B2",
+                "B3",
+            ],
+            "category_three": [
+                "C1",
+                "C5",
+            ],
+        },
+        7: {
+            "id": 7,
+            "date": "08/24/2024 - 09/10/2024",
+            "category_one": [
+                "A4",
+                "A1",
+            ],
+            "category_two": [
+                "B3",
+            ],
+            "category_three": [
+                "C4",
+            ],
+        },
+        8: {
+            "id": 8,
+            "date": "09/11/2024 - 09/25/2024",
+            "category_one": [
                 "A2",
                 "A3",
             ],
             "category_two": [
                 "B1",
-                "B5",
-                "B7",
             ],
             "category_three": [
-                "C6",
-                "C8",
                 "C3",
+            ],
+        },
+        9: {
+            "id": 9,
+            "date": "09/11/2024 - 09/25/2024",
+            "category_one": [
+                "A4",
+            ],
+            "category_two": [
+                "B2",
+                "B4",
+            ],
+            "category_three": [
+                "C2",
+                "C5",
+            ],
+        },
+        10: {
+            "id": 10,
+            "date": "09/11/2024 - 09/25/2024",
+            "category_one": [
+                "A1",
+                "A4",
+            ],
+            "category_two": [
+                "B3",
+            ],
+            "category_three": [
+                "C1",
             ],
         }
     }
@@ -68,18 +169,21 @@ const categoryRuleApi = {
         ]
     }
 }
-// for the rendering rules
+// for the rendering rules in table
 function renderCategory() {
-    // const categoryOneItems = categoryRuleApi.category_one.items;
-    writeCategory('#category-one-menu', categoryRuleApi.category_one)
-    writeCategory('#category-one-edit-menu', categoryRuleApi.category_one)
-    writeCategory('#category-two-menu', categoryRuleApi.category_two)
-    writeCategory('#category-two-edit-menu', categoryRuleApi.category_two)
-    writeCategory('#category-three-menu', categoryRuleApi.category_three)
-    writeCategory('#category-three-edit-menu', categoryRuleApi.category_three)
+    writeCategory('#category-one-menu  .category-menu-option', categoryRuleApi.category_one)
+    writeCategory('#category-one-edit-menu  .category-menu-option', categoryRuleApi.category_one)
+    writeCategory('#category-two-menu  .category-menu-option', categoryRuleApi.category_two)
+    writeCategory('#category-two-edit-menu  .category-menu-option', categoryRuleApi.category_two)
+    writeCategory('#category-three-menu  .category-menu-option', categoryRuleApi.category_three)
+    writeCategory('#category-three-edit-menu  .category-menu-option', categoryRuleApi.category_three)
+
+    writeCategory('.search-rule-one ul', categoryRuleApi.category_one)
+    writeCategory('.search-rule-two ul', categoryRuleApi.category_two)
+    writeCategory('.search-rule-three ul', categoryRuleApi.category_three)
 
     function writeCategory(targetId, categoryName) {
-        document.querySelector(`${targetId} .category-menu-option`).innerHTML = categoryName?.items?.map(item => `<li><label><input type="checkbox" value="${item}">${item}</label></li>`).join('');
+        document.querySelector(`${targetId}`).innerHTML = categoryName?.items?.map(item => `<li><label><input type="checkbox" value="${item}">${item}</label></li>`).join('');
     }
 }
 renderCategory();
@@ -102,11 +206,72 @@ function addRule(targetElement, category) {
 }
 
 
+
+
+
+
+// for btn disabling funcion when removed value
+document.querySelector('.search-rule-one').addEventListener('change',(e)=>{
+    if(getArrOfInputChecked('.search-rule-one').length <= 0){
+        document.querySelectorAll('.search-rule-two ul input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+        document.querySelectorAll('.search-rule-three ul input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+        document.querySelector('.search-rule-two button').setAttribute('disabled', true)
+        document.querySelector('.search-rule-three button').setAttribute('disabled', true)
+    }else{
+        document.querySelector(`.search-rule-two button`).removeAttribute('disabled')
+    }
+})
+document.querySelector('.search-rule-two').addEventListener('change', ()=>autoDisableBtn('.search-rule-two', '.search-rule-three'))
+function autoDisableBtn(toggleTargetElem, disabledElem){
+    if(getArrOfInputChecked(toggleTargetElem).length <= 0){
+        document.querySelectorAll(`${disabledElem} ul input[type="checkbox"]`).forEach(checkbox => checkbox.checked = false);
+        document.querySelector(`${disabledElem} button`).setAttribute('disabled', true)
+    }else{
+        document.querySelector(`${disabledElem} button`).removeAttribute('disabled')
+    }
+}
+
+
+// for clear form button
+document.getElementById('clearSearchBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('searchForm').reset();
+    document.querySelector('.search-rule-two button').setAttribute('disabled', true)
+    document.querySelector('.search-rule-three button').setAttribute('disabled', true)
+    renderData();
+});
+
+
+// for searching option/rules
+document.getElementById('searchForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    searchByCategory();
+});
+function searchByCategory() {
+    const catOneSelected = getArrOfInputChecked('.search-rule-one ul');
+    const catTwoSelected = getArrOfInputChecked('.search-rule-two ul');
+    const catThreeSelected = getArrOfInputChecked('.search-rule-three ul');
+
+    const filteredData = Object.values(rootApi.data).filter(item => {
+        const matchCatOne = catOneSelected.length === 0 || catOneSelected.some(val => item.category_one.includes(val));
+        const matchCatTwo = catTwoSelected.length === 0 || catTwoSelected.some(val => item.category_two.includes(val));
+        const matchCatThree = catThreeSelected.length === 0 || catThreeSelected.some(val => item.category_three.includes(val));
+
+        return matchCatOne && matchCatTwo && matchCatThree;
+    });
+
+    renderData(filteredData);
+}
+
+
+
+
 // for renderning the table
 const tablesContainer = document.getElementById('save-template');
-function renderData() {
+
+function renderData(data = Object.values(rootApi.data)) {
     tablesContainer.innerHTML = ''
-    Object.values(rootApi.data).forEach((val) => {
+    data.forEach((val) => {
         // Generate HTML for each category
         const categoryOneHTML = val?.category_one?.map(item => `<li>${item}</li>`).join('');
         const categoryTwoHTML = val?.category_two?.map(item => `<li>${item}</li>`).join('');
@@ -168,7 +333,8 @@ document.addEventListener('click', function (event) {
         const id = event.target.closest('.templete-delete-btn').dataset.valid;
         delete rootApi.data[id];
         tablesContainer.innerHTML = '';
-        renderData();
+        // renderData();
+        searchByCategory()
     }
 });
 // for delete end
@@ -202,7 +368,8 @@ document.addEventListener('click', function (event) {
 
             // Hide modal and re-render data
             document.getElementById('modalContainer').classList.add('d-none');
-            renderData();
+            // renderData();
+            searchByCategory()
         };
     }
 });
@@ -225,7 +392,7 @@ function getArrOfInputChecked(targetCheckbox) {
 // edit end
 
 // for modal
-document.getElementById('closeModalBtn').addEventListener('click',(e)=>{
+document.getElementById('closeModalBtn').addEventListener('click', (e) => {
     modalToggler()
 })
 function modalToggler() {
@@ -278,7 +445,8 @@ document.getElementById('add-rule-form').addEventListener('submit', (e) => {
 
     // Clear the current content and re-render the updated data
     tablesContainer.innerHTML = '';
-    renderData();
+    // renderData();
+    searchByCategory()
 })
 // for adding rule in table end
 
@@ -380,5 +548,5 @@ function deselectAllOptions(category) {
     }
 
     checkboxes.forEach(checkbox => checkbox.checked = false);
-} 
+}
 //for the selecting and deselecting end

@@ -43,39 +43,42 @@
                 <h4 style="padding-top: 15px;">Search Rule</h4>
               </div>
               <div class="outline">
-                <div class="row" style="padding-top: 20px;">
-                  <div class="col-12">
-                    <div class="d-flex flex-row bd-highlight mb-3" style="justify-content: center;">
-                      <div class="search-rule-one px-4">
+                <form class="row pt-3" id="searchForm">
+                  <div class="col-12 d-flex bd-highlight mb-3 justify-content-between ">
+
+                      <div class="search-rule-one ">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false" style="width: 160px;">
+                          aria-expanded="false" >
                           Search Rule One
                         </button>
                         <ul class="dropdown-menu">
-                          <li><label><input type="checkbox"> select All</label></li>
                         </ul>
                       </div>
-                      <div class="search-rule-two px-4">
+
+                      <div class="search-rule-two ">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false" style="width: 160px;">
+                          aria-expanded="false" disabled>
                           Search Rule Two
                         </button>
                         <ul class="dropdown-menu">
-                          <li><label><input type="checkbox"> select All</label></li>
                         </ul>
                       </div>
-                      <div class="search-rule-three px-4">
+
+                      <div class="search-rule-three">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false" style="width: 160px;">
+                          aria-expanded="false" disabled>
                           Search Rule Three
                         </button>
                         <ul class="dropdown-menu">
-                          <li><label><input type="checkbox"> select All</label></li>
                         </ul>
                       </div>
-                    </div>
+
                   </div>
-                </div>
+                  <div class="col-12 d-flex justify-content-evenly">
+                    <button class="btn btn-outline-danger px-5" id="clearSearchBtn">Reset</button>
+                    <button type="submit" class="btn btn-secondary px-5">Search</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
